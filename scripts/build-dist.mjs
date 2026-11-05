@@ -53,9 +53,8 @@ function dirSize(dir) {
 rmrf(DIST);
 fs.mkdirSync(STATIC_DEST, { recursive: true });
 
-// index.html — serve from site root in production
-let html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-html = html.replace(/<base href="[^"]*">/, '<base href="/">');
+// Keep source <base href> (e.g. /dev/espazio-at-solaya/) for reverse-proxy deploys
+const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 fs.writeFileSync(path.join(DIST, 'index.html'), html);
 
 for (const name of KEEP_STATIC_FILES) {
