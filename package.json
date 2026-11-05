@@ -1,0 +1,17 @@
+{
+  "name": "espazio-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "build": "node scripts/build-dist.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "sharp": "^0.35.5"
+  }
+}
