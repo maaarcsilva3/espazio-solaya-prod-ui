@@ -258,7 +258,7 @@
                             Walkthrough</a>
                         <a href="#location"
                             class="text-brand-light hover:text-brand-gold font-medium transition-colors duration-200 uppercase text-xs lg:text-sm tracking-wider">Location</a>
-                        <a href="#contact"
+                        <a href="#inquiry"
                             class="px-5 py-2 border border-brand-gold text-brand-light hover:bg-brand-gold hover:text-white transition-all duration-300 rounded uppercase text-xs lg:text-sm tracking-wider">Inquire</a>
                     </div>
 
@@ -285,7 +285,7 @@
                         Walkthrough</a>
                     <a href="#location"
                         class="block px-3 py-2 text-brand-light font-medium uppercase text-sm tracking-wider hover:bg-brand-gold/10">Location</a>
-                    <a href="#contact"
+                    <a href="#inquiry"
                         class="block px-3 py-2 text-brand-gold font-bold uppercase text-sm tracking-wider hover:bg-brand-gold/10">Inquire</a>
                 </div>
             </div>
@@ -734,9 +734,9 @@
                         </p>
 
                         <div class="border-l-4 border-brand-gold pl-6 mb-8">
-                            <h3 class="font-serif text-xl text-brand-green mb-2">Accepting Reservations Soon</h3>
-                            <p class="text-gray-600 font-light">While our doors are not yet open, we are eager to hear
-                                about your upcoming celebrations. Follow our journey or reach out for future inquiries.</p>
+                            <h3 class="font-serif text-xl text-brand-green mb-2">Share Your Celebration</h3>
+                            <p class="text-gray-600 font-light">Tell us about your upcoming event or stay. Our team will
+                                follow up to help you plan every detail.</p>
                         </div>
 
                         <div class="space-y-6" id="contact">
@@ -788,18 +788,81 @@
                         </div>
                     </div>
 
-                    <div class="relative h-[500px] lg:h-auto min-h-[420px] overflow-hidden space-reveal">
-                        <picture>
-                            <source srcset="Static/spaces/admin-01-hero-1600.webp" type="image/webp">
-                            <img src="Static/spaces/admin-01-hero-1600.jpg" alt="Admin building at Espaziō at Solaya"
-                                class="w-full h-full object-cover" width="1600" height="900" loading="lazy"
-                                decoding="async">
-                        </picture>
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-green/50 via-transparent to-transparent">
-                        </div>
-                        <p
-                            class="absolute bottom-8 left-8 right-8 font-serif text-brand-light text-xl md:text-2xl italic text-shadow">
-                            "A setting worthy of your finest moments."</p>
+                    <div class="bg-white/70 border border-brand-gold/30 p-6 md:p-8 space-reveal" id="inquiry">
+                        <h3 class="font-serif text-2xl text-brand-green mb-2">Send an Inquiry</h3>
+                        <p class="text-gray-600 font-light mb-6">Fill in the details below and we will get back to you shortly.</p>
+                        <form id="inquiry-form" class="space-y-4" novalidate>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="inquiry-full-name" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Full name *</label>
+                                    <input id="inquiry-full-name" name="full_name" type="text" required maxlength="160" autocomplete="name"
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label for="inquiry-email" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Email *</label>
+                                    <input id="inquiry-email" name="email" type="email" required maxlength="255" autocomplete="email"
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="inquiry-phone" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Phone</label>
+                                    <input id="inquiry-phone" name="phone" type="tel" maxlength="40" autocomplete="tel"
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label for="inquiry-guests" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Guests</label>
+                                    <input id="inquiry-guests" name="guests" type="number" min="1" step="1"
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="inquiry-offering" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Package *</label>
+                                <select id="inquiry-offering" name="offering_id" required
+                                    class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                    <option value="">Loading packages...</option>
+                                </select>
+                            </div>
+                            <div id="inquiry-event-type-wrap" class="hidden">
+                                <label for="inquiry-event-type" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Event type *</label>
+                                <select id="inquiry-event-type" name="event_type"
+                                    class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                    <option value="">Select event type</option>
+                                    <option value="Corporate">Corporate</option>
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Socials">Socials</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="inquiry-start-date" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Start date *</label>
+                                    <input id="inquiry-start-date" name="start_date" type="date" required
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                                <div>
+                                    <label for="inquiry-end-date" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">End date *</label>
+                                    <input id="inquiry-end-date" name="end_date" type="date" required
+                                        class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors">
+                                </div>
+                            </div>
+                            <div id="inquiry-amenities-wrap" class="hidden">
+                                <p class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-3">Amenities</p>
+                                <div id="inquiry-amenities" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                            </div>
+                            <div>
+                                <label for="inquiry-message" class="block text-xs font-bold uppercase tracking-wider text-brand-green mb-2">Message</label>
+                                <textarea id="inquiry-message" name="message" rows="4" maxlength="5000"
+                                    class="w-full border border-brand-green/20 bg-brand-cream px-4 py-3 text-brand-green focus:outline-none focus:border-brand-gold transition-colors resize-y"
+                                    placeholder="Tell us about your celebration, preferred setup, or questions."></textarea>
+                            </div>
+                            <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"
+                                class="hidden absolute left-[-9999px]" value="">
+                            <p id="inquiry-status" class="text-sm min-h-[1.25rem]" role="status" aria-live="polite"></p>
+                            <button id="inquiry-submit" type="submit"
+                                class="w-full sm:w-auto px-8 py-3 bg-brand-green text-brand-light uppercase tracking-widest text-sm font-medium hover:bg-brand-gold hover:text-white transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed">
+                                Send inquiry
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1248,6 +1311,155 @@
 
         window.addEventListener('scroll', animateOnScroll);
         animateOnScroll();
+
+        // --- Inquiry form → pipeline API ---
+        (function initInquiryForm() {
+            const API_BASE = '/dev/espazio-admin';
+            const form = document.getElementById('inquiry-form');
+            if (!form) return;
+
+            const offeringSelect = document.getElementById('inquiry-offering');
+            const amenitiesWrap = document.getElementById('inquiry-amenities-wrap');
+            const amenitiesBox = document.getElementById('inquiry-amenities');
+            const eventTypeWrap = document.getElementById('inquiry-event-type-wrap');
+            const eventTypeSelect = document.getElementById('inquiry-event-type');
+            const statusEl = document.getElementById('inquiry-status');
+            const submitBtn = document.getElementById('inquiry-submit');
+            const startInput = document.getElementById('inquiry-start-date');
+            const endInput = document.getElementById('inquiry-end-date');
+
+            /** @type {{ id: number, name: string, type: string }[]} */
+            let offerings = [];
+
+            const today = new Date().toISOString().slice(0, 10);
+            if (startInput) startInput.min = today;
+            if (endInput) endInput.min = today;
+
+            function setStatus(message, kind) {
+                if (!statusEl) return;
+                statusEl.textContent = message || '';
+                statusEl.className = 'text-sm min-h-[1.25rem] ' + (
+                    kind === 'error' ? 'text-red-700' :
+                    kind === 'success' ? 'text-brand-green' :
+                    'text-gray-500'
+                );
+            }
+
+            function isEventPackage(type) {
+                return type === 'event_place_only' || type === 'event_place_with_rooms';
+            }
+
+            function syncEventTypeVisibility() {
+                const selected = offerings.find((o) => String(o.id) === offeringSelect.value);
+                const show = selected ? isEventPackage(selected.type) : false;
+                eventTypeWrap.classList.toggle('hidden', !show);
+                eventTypeSelect.required = show;
+                if (!show) eventTypeSelect.value = '';
+            }
+
+            function fieldErrorMessage(errors) {
+                if (!errors || typeof errors !== 'object') return '';
+                const first = Object.values(errors).flat().find(Boolean);
+                return first ? String(first) : '';
+            }
+
+            fetch(`${API_BASE}/api/public/offerings`)
+                .then((res) => {
+                    if (!res.ok) throw new Error('Could not load packages.');
+                    return res.json();
+                })
+                .then((rows) => {
+                    offerings = Array.isArray(rows) ? rows : [];
+                    const packages = offerings.filter((o) => o.type !== 'amenity');
+                    const amenities = offerings.filter((o) => o.type === 'amenity');
+
+                    offeringSelect.innerHTML = '<option value="">Select a package</option>';
+                    packages.forEach((o) => {
+                        offeringSelect.insertAdjacentHTML(
+                            'beforeend',
+                            `<option value="${o.id}">${o.name}</option>`,
+                        );
+                    });
+                    if (!packages.length) {
+                        offeringSelect.innerHTML = '<option value="">No packages available</option>';
+                    }
+
+                    amenitiesBox.innerHTML = '';
+                    amenities.forEach((o) => {
+                        amenitiesBox.insertAdjacentHTML(
+                            'beforeend',
+                            `<label class="flex items-center gap-2 text-sm text-gray-700 font-light">
+                                <input type="checkbox" name="amenity_ids" value="${o.id}" class="accent-brand-green">
+                                <span>${o.name}</span>
+                            </label>`,
+                        );
+                    });
+                    amenitiesWrap.classList.toggle('hidden', amenities.length === 0);
+                })
+                .catch(() => {
+                    offeringSelect.innerHTML = '<option value="">Packages unavailable</option>';
+                    setStatus('Could not load packages. Please try again later.', 'error');
+                });
+
+            offeringSelect.addEventListener('change', syncEventTypeVisibility);
+            startInput.addEventListener('change', () => {
+                if (startInput.value) endInput.min = startInput.value;
+                if (endInput.value && endInput.value < startInput.value) endInput.value = startInput.value;
+            });
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                setStatus('');
+
+                const data = new FormData(form);
+                const selected = offerings.find((o) => String(o.id) === String(data.get('offering_id')));
+                if (selected && isEventPackage(selected.type) && !data.get('event_type')) {
+                    setStatus('Please choose an event type.', 'error');
+                    eventTypeSelect.focus();
+                    return;
+                }
+
+                const body = {
+                    full_name: String(data.get('full_name') || '').trim(),
+                    email: String(data.get('email') || '').trim(),
+                    phone: String(data.get('phone') || '').trim() || null,
+                    offering_id: Number(data.get('offering_id')),
+                    start_date: String(data.get('start_date') || ''),
+                    end_date: String(data.get('end_date') || ''),
+                    guests: data.get('guests') ? Number(data.get('guests')) : null,
+                    event_type: String(data.get('event_type') || '') || null,
+                    message: String(data.get('message') || '').trim() || null,
+                    amenity_ids: data.getAll('amenity_ids').map(Number).filter(Boolean),
+                    website: String(data.get('website') || ''),
+                };
+
+                submitBtn.disabled = true;
+                setStatus('Sending your inquiry...', 'info');
+
+                try {
+                    const res = await fetch(`${API_BASE}/api/public/inquiries`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(body),
+                    });
+                    const payload = await res.json().catch(() => ({}));
+                    if (!res.ok) {
+                        const detail = fieldErrorMessage(payload.errors) || payload.message || 'Could not send inquiry.';
+                        setStatus(detail, 'error');
+                        return;
+                    }
+                    form.reset();
+                    syncEventTypeVisibility();
+                    if (startInput) startInput.min = today;
+                    if (endInput) endInput.min = today;
+                    setStatus('Thank you. Your inquiry was sent — we will be in touch shortly.', 'success');
+                } catch {
+                    setStatus('Network error. Please check your connection and try again.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        })();
     </script>
 </body>
 
